@@ -1,11 +1,11 @@
 import { Store } from 'vuex'
 import { getModule } from 'vuex-module-decorators'
-import UserStore from '~/store/UserStore'
+import CountStore from '~/store/CountStore'
 
-let userStore: UserStore
+let countStore: CountStore
 
 function initialiseStores(store: Store<any>): void {
-  userStore = getModule(UserStore, store)
+  countStore = getModule(CountStore, store)
 }
 
-export { initialiseStores, userStore }
+export { initialiseStores, countStore }
