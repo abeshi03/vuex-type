@@ -2,6 +2,7 @@
   <div>
     <h1>{{ countNumber }}</h1>
     <button @click="countUp">カウントアップ</button>
+    <button @click="countUpAction">3秒後にカウントアップ</button>
   </div>
 </template>
 
@@ -18,6 +19,10 @@ export default class Index extends Vue {
 
   private countUp(): void {
     countStore.increment(1)
+  }
+
+  private countUpAction(): void {
+    countStore.countAction()
   }
 }
 </script>

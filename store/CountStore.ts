@@ -1,4 +1,4 @@
-import { Module, VuexModule, Mutation } from 'vuex-module-decorators'
+import { Module, VuexModule, Mutation, Action } from 'vuex-module-decorators'
 
 @Module({
   name: "CountStore",
@@ -14,8 +14,17 @@ export default class CountStore extends VuexModule {
     return this._count
   }
 
+  // Mutaionデコレーターを定義
   @Mutation
   increment(sumCount: number): void {
     this._count += sumCount
+  }
+
+  // 非同期処理を定義
+  @Action
+  countAction() {
+    setTimeout((): void => {
+      this.increment(1)
+    }, 3000)
   }
 }
