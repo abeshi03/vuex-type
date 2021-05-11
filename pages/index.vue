@@ -1,6 +1,7 @@
 <template>
   <div>
-    <h1>{{countNumber}}</h1>
+    <h1>{{ countNumber }}</h1>
+    <button @click="countUp">カウントアップ</button>
   </div>
 </template>
 
@@ -11,8 +12,12 @@ import { countStore } from "~/utils/store-accessor"
 
 @Component
 export default class Index extends Vue {
-  get countNumber() {
+  private get countNumber(): number {
     return countStore.count
+  }
+
+  private countUp(): void {
+    countStore.increment(1)
   }
 }
 </script>
